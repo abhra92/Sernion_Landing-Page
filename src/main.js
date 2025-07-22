@@ -155,7 +155,70 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Sernion-specific CTA functions
+window.startFreePilot = function() {
+    // Animate the button
+    const button = event.target;
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+    }, 150);
+    
+    // Show success message
+    showNotification('🚀 Free Pilot Started! Our team will contact you within 24 hours to onboard your dataset.', 'success');
+    
+    console.log('Free pilot program initiated');
+}
+
+window.requestCallback = function(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const form = document.getElementById('contactForm');
+    const formData = new FormData(form);
+    
+    // Basic validation
+    const name = formData.get('name') || form.querySelector('input[type="text"]').value;
+    const email = formData.get('email') || form.querySelector('input[type="email"]').value;
+    
+    if (!name || !email) {
+        showNotification('Please fill in at least your name and email.', 'error');
+        return;
+    }
+    
+    if (!isValidEmail(email)) {
+        showNotification('Please enter a valid email address.', 'error');
+        return;
+    }
+    
+    // Animate the button
+    const button = event.target;
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+    }, 150);
+    
+    // Clear form and show success
+    form.reset();
+    showNotification('� Callback Requested! Our team will reach out within 2 business hours.', 'success');
+    
+    console.log('Callback requested for:', { name, email });
+}
+
+window.bookIntroCall = function() {
+    // Animate the button
+    const button = event.target;
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+    }, 150);
+    
+    // Show success message
+    showNotification('📅 Intro Call Booked! Check your email for calendar invitation.', 'success');
+    
+    console.log('Intro call booking requested');
+}
+
+// Update existing functions
 window.bookPilot = function() {
     // Animate the button
     const button = event.target;
@@ -165,11 +228,12 @@ window.bookPilot = function() {
     }, 150);
     
     // Show success message
-    showNotification('🚀 Free Pilot Booked! Our team will contact you within 24 hours.', 'success');
+    showNotification('🚀 Free Pilot Booked! Our team will contact you within 24 hours to discuss your annotation needs.', 'success');
     
-    // Could integrate with actual booking system here
     console.log('Pilot booking requested');
 }
+
+// ...existing code...
 
 window.talkToTeam = function() {
     // Animate the button
