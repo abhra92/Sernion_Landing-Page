@@ -10,6 +10,8 @@
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       sans-serif;
+    background-color: #000000;
+    color: #ffffff;
   }
 }
 
@@ -69,16 +71,16 @@
 
   /* Custom button styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg hover:shadow-xl;
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black shadow-lg hover:shadow-xl;
   }
 
   .btn-secondary {
-    @apply border-2 border-gray-600 hover:border-blue-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 hover:bg-blue-500/10;
+    @apply border-2 border-gray-700 hover:border-blue-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black hover:bg-blue-500/20 bg-black/50;
   }
 
   /* Card styles */
   .card {
-    @apply bg-gray-800/60 p-6 md:p-8 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-500 ease-in-out hover:transform hover:scale-105 backdrop-blur-sm hover:bg-gray-800/80 hover:shadow-2xl hover:shadow-blue-500/20;
+    @apply bg-black/90 p-6 md:p-8 rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all duration-500 ease-in-out hover:transform hover:scale-105 backdrop-blur-sm hover:bg-black/95 hover:shadow-2xl hover:shadow-blue-500/20;
   }
 
   /* Hero section */
@@ -86,19 +88,20 @@
     position: relative;
     background: radial-gradient(
         ellipse at center,
-        rgba(59, 130, 246, 0.15) 0%,
-        transparent 50%
+        rgba(59, 130, 246, 0.1) 0%,
+        black 70%
       ),
       radial-gradient(
         ellipse at 80% 20%,
-        rgba(139, 92, 246, 0.15) 0%,
-        transparent 50%
+        rgba(139, 92, 246, 0.1) 0%,
+        transparent 60%
       ),
       radial-gradient(
         ellipse at 20% 80%,
-        rgba(6, 182, 212, 0.15) 0%,
-        transparent 50%
-      );
+        rgba(6, 182, 212, 0.1) 0%,
+        transparent 60%
+      ),
+      #000000;
   }
 
   /* Trust text styling */
@@ -113,7 +116,7 @@
 
   /* Solution items */
   .solution-item {
-    @apply p-6 rounded-lg bg-gray-800/30 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 backdrop-blur-sm;
+    @apply p-6 rounded-lg bg-black/80 border border-gray-800/50 hover:border-blue-500/30 transition-all duration-300 backdrop-blur-sm hover:bg-black/90;
   }
 
   /* Plan styling */
@@ -142,7 +145,22 @@
   }
 
   .social-link {
-    @apply text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 p-2 rounded-full hover:bg-gray-800/50;
+    @apply text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 p-2 rounded-full hover:bg-black/60;
+  }
+
+  /* Form inputs OLED mode */
+  input,
+  select,
+  textarea {
+    background-color: #000000 !important;
+    border-color: #374151 !important;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    background-color: #000000 !important;
+    border-color: #3b82f6 !important;
   }
 
   /* Newsletter input focus effects */
@@ -175,7 +193,7 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: #1f2937;
+    background: #000000;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -194,7 +212,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -204,6 +222,62 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #2563eb, #7c3aed);
+}
+
+/* OLED Dark Mode Enhancements */
+* {
+  scrollbar-color: #3b82f6 #000000;
+}
+
+/* Make sure all backgrounds are truly black */
+html,
+body {
+  background-color: #000000 !important;
+}
+
+/* Enhanced glow effects for OLED */
+.text-gradient {
+  filter: brightness(1.2);
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15),
+    0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+}
+
+/* Enhanced contrast for better OLED viewing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff !important;
+}
+
+p,
+span,
+div {
+  color: inherit;
+}
+
+/* Special OLED animations */
+@keyframes oledGlow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+.animate-pulse {
+  animation: oledGlow 2s ease-in-out infinite;
 }
 
 /* Reduced motion for accessibility */
